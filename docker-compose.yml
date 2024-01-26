@@ -9,9 +9,10 @@ services:
     volumes:
       - ./vols/mysql/data/:/var/lib/mysql/
     user: 1000:1000
-  adminer:
-    image: adminer:latest
+  phpmyadmin:
+    image: phpmyadmin:latest
     environment:
-      - ADMINER_DEFAULT_SERVER=mysql
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
     ports:
-      - 8001:8080
+      - 8001:80
