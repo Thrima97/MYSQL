@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3307:3306
+    volumes:
+      - ./vols/mysql/data/:/var/lib/mysql/
+    user: 1000:1000
+  adminer:
+    image: adminer:latest
+    environment:
+      - ADMINER_DEFAULT_SERVER=mysql
+    ports:
+      - 8001:8080
